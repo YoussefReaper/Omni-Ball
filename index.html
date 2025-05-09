@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Omni Directional O-Wind Turbine</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script>
+        // Ensure console.log exists to prevent errors
+        if (!window.console) window.console = { log: function() {}, error: function() {} };
+        
+        // Helper function to debug page transitions
+        function pageTransitionCheck() {
+            console.log("Page transition debug helper loaded");
+        }
+    </script>
+</head>
+<body>
+    <div class="progress-bar"></div>
+    
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-brand">O-Wind</div>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#features" class="nav-link" data-page="features">Features</a></li>
+                <li><a href="#technical" class="nav-link" data-page="technical">Technical</a></li>
+                <li><a href="#applications" class="nav-link" data-page="applications">Applications</a></li>
+                <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="page-container">
+        <div class="page active" id="home">
+            <header>
+                <div class="container">
+                    <h1>Omni Directional O-Wind Turbine</h1>
+                    <p class="tagline">The Future of Urban Wind Energy</p>
+                </div>
+            </header>
+
+            <section class="hero">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-text">
+                            <h2>Revolutionary Wind Energy Technology</h2>
+                            <p>Harnessing wind energy from any direction - transforming urban environments into power generators</p>
+                            <a href="#features" class="btn page-transition" data-page="features" 
+                               onclick="event.preventDefault(); window.goToPage('features');">
+                               Discover More
+                            </a>
+                        </div>
+                        <div class="hero-image">
+                            <!-- Main turbine image placeholder -->
+                            <div class="image-placeholder">
+                                <p>Main Turbine Image</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="page" id="features">
+            <section class="features-section">
+                <div class="container">
+                    <h2>Key Features & Benefits</h2>
+                    <div class="feature-grid">
+                        <div class="feature">
+                            <div class="image-placeholder">
+                                <p>Omni-directional Capability</p>
+                            </div>
+                            <h3>Omni-directional Design</h3>
+                            <p>Captures wind from any direction without repositioning, perfect for turbulent urban airflows</p>
+                        </div>
+                        <div class="feature">
+                            <div class="image-placeholder">
+                                <p>Compact Design</p>
+                            </div>
+                            <h3>Space Efficient</h3>
+                            <p>Compact spherical design fits easily on balconies, rooftops, and other urban spaces</p>
+                        </div>
+                        <div class="feature">
+                            <div class="image-placeholder">
+                                <p>Efficiency Chart</p>
+                            </div>
+                            <h3>High Efficiency</h3>
+                            <p>Innovative aerodynamics maximize energy conversion even in variable wind conditions</p>
+                        </div>
+                        <div class="feature">
+                            <div class="image-placeholder">
+                                <p>Eco-friendly Impact</p>
+                            </div>
+                            <h3>Environmentally Friendly</h3>
+                            <p>Zero emissions and sustainable materials contribute to a greener planet</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="page" id="technical">
+            <section class="technical-section">
+                <div class="container">
+                    <h2>Technical Specifications</h2>
+                    <div class="tech-content">
+                        <div class="tech-image">
+                            <div class="image-placeholder">
+                                <p>Technical Diagram</p>
+                            </div>
+                        </div>
+                        <div class="tech-specs">
+                            <div class="spec">
+                                <h4>Power Output</h4>
+                                <p>Up to 0.17 kW depending on wind conditions</p>
+                            </div>
+                            <div class="spec">
+                                <h4>Dimensions</h4>
+                                <p>40 cm diameter spherical design</p>
+                            </div>
+                            <div class="spec">
+                                <h4>Weight</h4>
+                                <p>7.5 kg - lightweight for easy installation</p>
+                            </div>
+                            <div class="spec">
+                                <h4>Material</h4>
+                                <p>Durable, weather-resistant composites</p>
+                            </div>
+                            <div class="spec">
+                                <h4>Wind Speed Range</h4>
+                                <p>Operational from 3 to 7 m/s</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="page" id="applications">
+            <section class="applications-section">
+                <div class="container">
+                    <h2>Applications</h2>
+                    <div class="app-grid">
+                        <div class="app">
+                            <div class="image-placeholder">
+                                <p>Residential Application</p>
+                            </div>
+                            <h3>Residential</h3>
+                            <p>Perfect for apartments, houses and residential communities</p>
+                        </div>
+                        <div class="app">
+                            <div class="image-placeholder">
+                                <p>Commercial Application</p>
+                            </div>
+                            <h3>Commercial</h3>
+                            <p>Ideal for office buildings, shopping centers and urban infrastructure</p>
+                        </div>
+                        <div class="app">
+                            <div class="image-placeholder">
+                                <p>Off-grid Application</p>
+                            </div>
+                            <h3>Off-Grid</h3>
+                            <p>Reliable power generation for remote locations and emergency situations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="cta-box">
+                        <h2>Ready to Transform Your Energy Future?</h2>
+                        <p>The O-Wind Turbine represents a breakthrough in urban renewable energy generation</p>
+                        <a href="#contact" class="btn page-transition" data-page="contact">Contact Us For Pricing</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="page" id="contact">
+            <section class="contact-section">
+                <div class="container">
+                    <h2>Contact Us</h2>
+                    <div class="contact-grid">
+                        <div class="contact-form">
+                            <form>
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" id="name" placeholder="Your Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" id="email" placeholder="Your Email">
+                                </div>
+                                <div class="form-group">
+                                    <label for="message">Message</label>
+                                    <textarea id="message" placeholder="Your Message"></textarea>
+                                </div>
+                                <button type="submit" class="btn">Send Message</button>
+                            </form>
+                        </div>
+                        
+                        <div class="contact-info">
+                            <h3>Contact Information</h3>
+                            <p><i class="fas fa-envelope"></i> info@Wind_Ball.com</p>
+                            <p><i class="fas fa-phone"></i> +20 101 636 6886</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <footer>
+                <div class="container">
+                    <p class="copyright">© 2025 Omni-Ball. All rights reserved.</p>
+                    <div class="footer-glow"></div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <div class="page-transition-overlay">
+        <div class="transition-circle"></div>
+    </div>
+    
+    <script src="script.js"></script>
+    <script>
+        // Additional check to ensure page system initializes
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if page transition system is ready after a short delay
+            setTimeout(function() {
+                if (typeof window.goToPage !== 'function') {
+                    console.error('Page transition system not initialized correctly');
+                    // Fallback initialization
+                    if (typeof initPageSystem === 'function') {
+                        console.log('Attempting fallback initialization');
+                        initPageSystem();
+                    }
+                }
+            }, 1000);
+        });
+    </script>
+    <div class="background-overlay"></div>
+    <div class="particles"></div>
+</body>
+</html>
