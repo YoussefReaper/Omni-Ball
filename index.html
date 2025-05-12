@@ -34,6 +34,7 @@
                 <li><a href="#features" class="nav-link" data-page="features">Features</a></li>
                 <li><a href="#technical" class="nav-link" data-page="technical">Technical</a></li>
                 <li><a href="#applications" class="nav-link" data-page="applications">Applications</a></li>
+                <li><a href="#booking" class="nav-link" data-page="booking">Book Now</a></li>
                 <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
             </ul>
         </div>
@@ -177,6 +178,194 @@
                         <h2>Ready to Transform Your Energy Future?</h2>
                         <p>The O-Wind Turbine represents a breakthrough in urban renewable energy generation</p>
                         <a href="#contact" class="btn page-transition" data-page="contact">Contact Us For Pricing</a>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="page" id="booking">
+            <section class="booking-section">
+                <div class="container">
+                    <h2>Reserve Your O-Wind Turbine</h2>
+                    <div class="booking-content">
+                        <div class="product-preview">
+                            <div class="image-placeholder">
+                                <p>O-Wind Turbine</p>
+                            </div>
+                            <div class="product-details">
+                                <h3>Omni-Directional Wind Turbine</h3>
+                                <div class="product-specs">
+                                    <p><strong>Model:</strong> OWT-40 Standard</p>
+                                    <p><strong>Output:</strong> Up to 0.4 kW</p>
+                                    <p><strong>Dimensions:</strong> 40cm diameter</p>
+                                    <p><strong>Limited Pre-Order Price:</strong> <span class="price">$599</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="booking-form-container">
+                            <div class="form-tabs">
+                                <button class="tab-btn active" data-tab="reservation">Reservation</button>
+                                <button class="tab-btn" data-tab="payment">Payment</button>
+                                <button class="tab-btn" data-tab="confirmation" disabled>Confirmation</button>
+                            </div>
+                            
+                            <div class="tab-content active" id="reservation-tab">
+                                <form id="reservation-form" class="booking-form">
+                                    <div class="form-group">
+                                        <label for="full-name">Full Name</label>
+                                        <input type="text" id="full-name" placeholder="Enter your full name" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="booking-email">Email Address</label>
+                                        <input type="email" id="booking-email" placeholder="Enter your email" required>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="phone">Phone Number</label>
+                                        <input type="tel" id="phone" placeholder="Enter your phone number">
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="quantity">Quantity</label>
+                                        <select id="quantity">
+                                            <option value="1">1 unit</option>
+                                            <option value="2">2 units</option>
+                                            <option value="3">3 units</option>
+                                            <option value="4">4 units</option>
+                                            <option value="5">5 units</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="form-group">
+                                        <label for="installation">Installation Option</label>
+                                        <select id="installation">
+                                            <option value="self">Self-Installation (Free)</option>
+                                            <option value="professional">Professional Installation (+$150)</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <button type="button" class="btn next-btn">Next: Payment</button>
+                                </form>
+                            </div>
+                            
+                            <div class="tab-content" id="payment-tab">
+                                <div class="payment-options">
+                                    <h3>Select Payment Method</h3>
+                                    
+                                    <div class="payment-method active">
+                                        <input type="radio" id="paypal" name="payment-method" checked>
+                                        <label for="paypal">
+                                            <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" alt="PayPal" class="payment-logo">
+                                            <span>PayPal or Credit Card</span>
+                                        </label>
+                                    </div>
+                                    
+                                    <div class="paypal-form">
+                                        <div class="paypal-header">
+                                            <div class="paypal-logo">
+                                                <i class="fab fa-paypal"></i> PayPal
+                                            </div>
+                                            <div class="paypal-cards">
+                                                <i class="fab fa-cc-visa"></i>
+                                                <i class="fab fa-cc-mastercard"></i>
+                                                <i class="fab fa-cc-amex"></i>
+                                                <i class="fab fa-cc-discover"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="card-number">Card Number</label>
+                                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                                        </div>
+                                        
+                                        <div class="card-details">
+                                            <div class="form-group">
+                                                <label for="expiry">Expiration Date</label>
+                                                <input type="text" id="expiry" placeholder="MM/YY">
+                                            </div>
+                                            
+                                            <div class="form-group">
+                                                <label for="cvc">Security Code</label>
+                                                <input type="text" id="cvc" placeholder="CVC">
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-group">
+                                            <label for="card-name">Name on Card</label>
+                                            <input type="text" id="card-name" placeholder="Enter name as shown on card">
+                                        </div>
+                                        
+                                        <div class="booking-summary">
+                                            <h4>Order Summary</h4>
+                                            <div class="summary-item">
+                                                <span>O-Wind Turbine (<span id="summary-quantity">1</span>)</span>
+                                                <span id="summary-product-price">$599.00</span>
+                                            </div>
+                                            <div class="summary-item" id="summary-installation">
+                                                <span>Installation</span>
+                                                <span>$0.00</span>
+                                            </div>
+                                            <div class="summary-item">
+                                                <span>Shipping</span>
+                                                <span>$0.00</span>
+                                            </div>
+                                            <div class="summary-total">
+                                                <span>Total</span>
+                                                <span id="summary-total-price">$599.00</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="form-actions">
+                                            <button type="button" class="btn back-btn">Back</button>
+                                            <button type="button" class="btn submit-payment">Complete Reservation</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="tab-content" id="confirmation-tab">
+                                <div class="confirmation-message">
+                                    <div class="success-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <h3>Reservation Confirmed!</h3>
+                                    <p>Thank you for reserving your O-Wind Turbine.</p>
+                                    <p>Your reservation number: <strong id="reservation-number">OWT-12345</strong></p>
+                                    <div class="queue-position">
+                                        <p>You are <strong class="position-number">#1</strong> on our pre-order list.</p>
+                                        <p>We will notify you when your order is ready for production.</p>
+                                    </div>
+                                    
+                                    <div class="email-preview">
+                                        <div class="email-header">
+                                            <p><strong>From:</strong> Airbenders@OmniSphere.com</p>
+                                            <p><strong>To:</strong> <span id="confirmation-email">customer@example.com</span></p>
+                                            <p><strong>Subject:</strong> Your O-Wind Turbine Reservation Confirmation</p>
+                                        </div>
+                                        <div class="email-body">
+                                            <p>Dear <span id="confirmation-name">Customer</span>,</p>
+                                            <p>Thank you for reserving your O-Wind Turbine. We're excited to welcome you to our community of sustainable energy pioneers!</p>
+                                            <p>Your reservation has been confirmed, and you are <strong class="position-number">#1</strong> on our pre-order list.</p>
+                                            <p>We will notify you when your O-Wind Turbine is ready for production and delivery.</p>
+                                            <p>Reservation Details:</p>
+                                            <ul>
+                                                <li>Product: O-Wind Turbine OWT-40 Standard</li>
+                                                <li>Quantity: <span id="confirmation-quantity">1</span></li>
+                                                <li>Installation: <span id="confirmation-installation">Self-Installation</span></li>
+                                                <li>Reservation Number: <span id="email-reservation-number">OWT-12345</span></li>
+                                            </ul>
+                                            <p>If you have any questions, please don't hesitate to contact our support team.</p>
+                                            <p>Thank you for joining the renewable energy revolution!</p>
+                                            <p>Best regards,<br>The Airbenders Team<br>OmniSphere Technologies</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <button class="btn" id="back-to-home">Return to Home Page</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

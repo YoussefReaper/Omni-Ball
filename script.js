@@ -164,4 +164,177 @@ document.addEventListener('DOMContentLoaded', function() {
             particles.appendChild(particle);
         }
     }
+
+    // ==========================================================
+    // Booking System Functionality
+    // ==========================================================
+    
+    // Initialize booking variables
+    let currentReservationCount = localStorage.getItem('reservationCount') || 0;
+    let currentTab = 'reservation';
+    
+    // Get booking elements
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+    const nextButton = document.querySelector('.next-btn');
+    const backButton = document.querySelector('.back-btn');
+    const submitPaymentButton = document.querySelector('.submit-payment');
+    const backToHomeButton = document.getElementById('back-to-home');
+    
+    // Tab switching functionality
+    if (tabButtons.length > 0) {
+        tabButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const tab = this.getAttribute('data-tab');
+                if (!this.disabled) {
+                    switchTab(tab);
+                }
+            });
+        });
+    }
+    
+    // Next button click
+    if (nextButton) {
+        nextButton.addEventListener('click', function() {
+            // Simple validation
+            const nameInput = document.getElementById('full-name');
+            const emailInput = document.getElementById('booking-email');
+            
+            if (nameInput.value.trim() === '') {
+                nameInput.focus();
+                return;
+            }
+            if (emailInput.value.trim() === '') {
+                emailInput.focus();
+                return;
+            }
+            
+            // Switch to payment tab
+            switchTab('payment');
+            
+            // Update summary information
+            updateOrderSummary();
+        });
+    }
+    
+    // Back button click
+    if (backButton) {
+        backButton.addEventListener('click', function() {
+            switchTab('reservation');
+        });
+    }
+    
+    // Submit payment and show confirmation
+    if (submitPaymentButton) {
+        submitPaymentButton.addEventListener('click', function() {
+            // Increment reservation counter
+            currentReservationCount = parseInt(currentReservationCount) + 1;
+            localStorage.setItem('reservationCount', currentReservationCount);
+            
+            // Create reservation number
+            const reservationNumber = `OWT-${Math.floor(10000 + Math.random() * 90000)}`;
+            
+            // Update confirmation page
+            document.getElementById('reservation-number').textContent = reservationNumber;
+            document.getElementById('email-reservation-number').textContent = reservationNumber;
+            
+            const positionNumbers = document.querySelectorAll('.position-number');
+            positionNumbers.forEach(el => {
+                el.textContent = `#${currentReservationCount}`;
+            });
+            
+            // Set customer details in confirmation
+            const fullName = document.getElementById('full-name').value || 'Customer';
+            const email = document.getElementById('booking-email').value || 'customer@example.com';
+            const quantity = document.getElementById('quantity').value || '1';
+            const installation = document.getElementById('installation').value === 'professional' ? 
+                'Professional Installation' : 'Self-Installation';
+                
+            document.getElementById('confirmation-name').textContent = fullName;
+            document.getElementById('confirmation-email').textContent = email;
+            document.getElementById('confirmation-quantity').textContent = quantity;
+            document.getElementById('confirmation-installation').textContent = installation;
+            
+            // Enable and switch to confirmation tab
+            document.querySelector('.tab-btn[data-tab="confirmation"]').disabled = false;
+            switchTab('confirmation');
+        });
+    }
+    
+    // Back to home button
+    if (backToHomeButton) {
+        backToHomeButton.addEventListener('click', function() {
+            window.goToPage('home');
+        });
+    }
+    
+    // Installation option changes
+    const installationSelect = document.getElementById('installation');
+    if (installationSelect) {
+        installationSelect.addEventListener('change', function() {
+            updateOrderSummary();
+        });
+    }
+    
+    // Quantity changes
+    const quantitySelect = document.getElementById('quantity');
+    if (quantitySelect) {
+        quantitySelect.addEventListener('change', function() {
+            updateOrderSummary();
+        });
+    }
+    
+    // Update order summary based on selections
+    function updateOrderSummary() {
+        const quantity = document.getElementById('quantity').value || 1;
+        const installation = document.getElementById('installation').value;
+        
+        // Update quantity in summary
+        document.getElementById('summary-quantity').textContent = quantity;
+        
+        // Calculate product price
+        const unitPrice = 599;
+        const productTotal = unitPrice * quantity;
+        document.getElementById('summary-product-price').textContent = `$${productTotal.toFixed(2)}`;
+        
+        // Update installation cost
+        const installationItem = document.getElementById('summary-installation');
+        if (installation === 'professional') {
+            const installationCost = 150 * quantity;
+            installationItem.querySelector('span:last-child').textContent = `$${installationCost.toFixed(2)}`;
+        } else {
+            installationItem.querySelector('span:last-child').textContent = '$0.00';
+        }
+        
+        // Calculate and update total
+        let total = productTotal;
+        if (installation === 'professional') {
+            total += 150 * quantity;
+        }
+        
+        document.getElementById('summary-total-price').textContent = `$${total.toFixed(2)}`;
+    }
+    
+    // Switch between tabs
+    function switchTab(tab) {
+        // Update active tab button
+        tabButtons.forEach(btn => {
+            if (btn.getAttribute('data-tab') === tab) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        
+        // Show active tab content
+        tabContents.forEach(content => {
+            if (content.id === `${tab}-tab`) {
+                content.classList.add('active');
+            } else {
+                content.classList.remove('active');
+            }
+        });
+        
+        currentTab = tab;
+    }
 });
