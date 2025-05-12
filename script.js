@@ -337,4 +337,256 @@ document.addEventListener('DOMContentLoaded', function() {
         
         currentTab = tab;
     }
+
+    // ==========================================================
+    // Interactive Features
+    // ==========================================================
+    
+    // Initialize 3D Model Viewer if present
+    initializeModelViewer();
+    
+    // Initialize Charts if present
+    initializeCharts();
+    
+    // Set up Energy Calculator
+    setupCalculator();
+    
+    // Initialize Testimonials
+    initializeTestimonials();
+    
+    // Add animation to timeline items
+    animateTimelineOnScroll();
 });
+
+// 3D Model Viewer Functions
+function initializeModelViewer() {
+    const modelViewer = document.getElementById('turbine-model');
+    if (!modelViewer) return;
+    
+    // This would normally use an actual 3D model of your turbine
+    // For prototype purposes, we're using a placeholder model
+    
+    const rotateToggle = document.getElementById('rotate-toggle');
+    const explodeView = document.getElementById('explode-view');
+    const resetView = document.getElementById('reset-view');
+    
+    if (rotateToggle) {
+        rotateToggle.addEventListener('click', function() {
+            if (modelViewer.autoRotate) {
+                modelViewer.autoRotate = false;
+                this.textContent = 'Start Rotation';
+            } else {
+                modelViewer.autoRotate = true;
+                this.textContent = 'Pause Rotation';
+            }
+        });
+    }
+    
+    if (explodeView) {
+        explodeView.addEventListener('click', function() {
+            // In a real implementation, this would trigger an exploded view animation
+            modelViewer.cameraOrbit = '0deg 75deg 2m';
+            if (this.textContent === 'Exploded View') {
+                this.textContent = 'Assembled View';
+            } else {
+                this.textContent = 'Exploded View';
+            }
+        });
+    }
+    
+    if (resetView) {
+        resetView.addEventListener('click', function() {
+            modelViewer.cameraOrbit = '0deg 75deg 2m';
+            modelViewer.cameraTarget = '0m 0m 0m';
+            if (rotateToggle) {
+                modelViewer.autoRotate = true;
+                rotateToggle.textContent = 'Pause Rotation';
+            }
+            if (explodeView) {
+                explodeView.textContent = 'Exploded View';
+            }
+        });
+    }
+}
+
+// Chart Initialization
+function initializeCharts() {
+    const efficiencyChart = document.getElementById('efficiency-chart');
+    if (!efficiencyChart) return;
+    
+    // This would normally use a charting library like Chart.js
+    // For prototype purposes, we'll create a simple CSS-based chart
+    
+    const chartData = [
+        { label: 'Low Wind', oWind: 65, traditional: 30, solar: 80 },
+        { label: 'Medium Wind', oWind: 85, traditional: 70, solar: 75 },
+        { label: 'Gusty Wind', oWind: 90, traditional: 60, solar: 65 },
+        { label: 'Changing Direction', oWind: 80, traditional: 40, solar: 70 },
+        { label: 'Urban Setting', oWind: 75, traditional: 25, solar: 60 }
+    ];
+    
+    let chartHTML = '<div class="chart-grid">';
+    
+    chartData.forEach((item, index) => {
+        chartHTML += `
+            <div class="chart-column">
+                <div class="chart-bars">
+                    <div class="data-bar" style="height: ${item.oWind}%; background-color: var(--primary-color); animation-delay: ${index * 0.1}s;"></div>
+                    <div class="data-bar" style="height: ${item.traditional}%; background-color: var(--data-color-2); animation-delay: ${index * 0.1 + 0.2}s;"></div>
+                    <div class="data-bar" style="height: ${item.solar}%; background-color: var(--data-color-3); animation-delay: ${index * 0.1 + 0.4}s;"></div>
+                </div>
+                <div class="chart-label">${item.label}</div>
+            </div>
+        `;
+    });
+    
+    chartHTML += '</div>';
+    efficiencyChart.innerHTML = chartHTML;
+    
+    // Add required styles for the chart
+    const style = document.createElement('style');
+    style.textContent = `
+        .chart-grid {
+            display: flex;
+            justify-content: space-around;
+            align-items: flex-end;
+            height: 100%;
+        }
+        .chart-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 18%;
+        }
+        .chart-bars {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 85%;
+        }
+        .data-bar {
+            width: 30%;
+            margin-bottom: 10px;
+            border-radius: 3px 3px 0 0;
+        }
+        .chart-label {
+            font-size: 0.8rem;
+            text-align: center;
+            padding: 5px 0;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
+// Energy Calculator
+function setupCalculator() {
+    const calculateBtn = document.getElementById('calculate-btn');
+    if (!calculateBtn) return;
+    
+    calculateBtn.addEventListener('click', function() {
+        const location = document.getElementById('location').value;
+        const electricityCost = parseFloat(document.getElementById('electricity-cost').value);
+        const windExposure = document.getElementById('wind-exposure').value;
+        const units = parseInt(document.getElementById('units').value);
+        
+        // Simple calculation factors (would be more sophisticated in a real tool)
+        const locationFactor = {
+            'urban-high': 1.2,
+            'urban-low': 0.9,
+            'suburban': 1.0,
+            'rural': 1.3
+        };
+        
+        const exposureFactor = {
+            'excellent': 1.4,
+            'good': 1.0,
+            'moderate': 0.7,
+            'poor': 0.4
+        };
+        
+        // Calculate estimated energy production (kWh)
+        const baseProduction = 350; // Base annual kWh for one unit
+        const energyProduction = baseProduction * locationFactor[location] * exposureFactor[windExposure] * units;
+        
+        // Calculate cost savings
+        const costSavings = energyProduction * electricityCost;
+        
+        // Calculate CO2 reduction (using average 0.71 kg CO2 per kWh)
+        const co2Reduction = energyProduction * 0.71;
+        
+        // Calculate ROI
+        const turbineCost = 599 * units;
+        const roi = turbineCost / costSavings;
+        
+        // Update results
+        document.getElementById('energy-result').textContent = Math.round(energyProduction) + ' kWh';
+        document.getElementById('savings-result').textContent = '$' + costSavings.toFixed(2);
+        document.getElementById('co2-result').textContent = Math.round(co2Reduction) + ' kg';
+        document.getElementById('roi-result').textContent = roi.toFixed(1) + ' years';
+        
+        // Add animation to results
+        const results = document.getElementById('calculator-results');
+        results.classList.add('glow-pulse');
+        setTimeout(() => {
+            results.classList.remove('glow-pulse');
+        }, 3000);
+    });
+}
+
+// Testimonials Carousel
+function initializeTestimonials() {
+    const testimonials = document.querySelectorAll('.testimonial-item');
+    const nextBtn = document.querySelector('.next-testimonial');
+    const prevBtn = document.querySelector('.prev-testimonial');
+    
+    if (!testimonials.length || !nextBtn || !prevBtn) return;
+    
+    let currentIndex = 0;
+    
+    // Show one testimonial at a time
+    function showTestimonial(index) {
+        testimonials.forEach((item, i) => {
+            item.style.display = i === index ? 'block' : 'none';
+        });
+    }
+    
+    // Initial display
+    showTestimonial(currentIndex);
+    
+    // Next button
+    nextBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        showTestimonial(currentIndex);
+    });
+    
+    // Previous button
+    prevBtn.addEventListener('click', function() {
+        currentIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+        showTestimonial(currentIndex);
+    });
+    
+    // Auto-rotate testimonials
+    setInterval(function() {
+        currentIndex = (currentIndex + 1) % testimonials.length;
+        showTestimonial(currentIndex);
+    }, 8000);
+}
+
+// Animate timeline items when scrolled into view
+function animateTimelineOnScroll() {
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    if (!timelineItems.length) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    timelineItems.forEach(item => {
+        observer.observe(item);
+    });
+}

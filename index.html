@@ -142,6 +142,101 @@
                             </div>
                         </div>
                     </div>
+                    
+                    <!-- Interactive 3D Model -->
+                    <h3 class="section-subtitle">Interactive 3D Model</h3>
+                    <div class="model-viewer-container">
+                        <model-viewer id="turbine-model" alt="O-Wind Turbine 3D Model" 
+                            src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
+                            shadow-intensity="1" camera-controls touch-action="pan-y"
+                            auto-rotate ar>
+                            <div class="progress-bar hide" slot="progress-bar">
+                                <div class="update-bar"></div>
+                            </div>
+                        </model-viewer>
+                        <div class="model-controls">
+                            <button class="model-control-btn" id="rotate-toggle">Pause Rotation</button>
+                            <button class="model-control-btn" id="explode-view">Exploded View</button>
+                            <button class="model-control-btn" id="reset-view">Reset View</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Energy Efficiency Chart -->
+                    <h3 class="section-subtitle">Performance Analysis</h3>
+                    <div class="interactive-chart">
+                        <p>Compare the O-Wind Turbine's efficiency with traditional wind solutions across different wind conditions:</p>
+                        <div class="chart-container" id="efficiency-chart">
+                            <!-- Chart will be rendered here by JavaScript -->
+                        </div>
+                        <div class="chart-legend">
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: var(--primary-color)"></span>
+                                <span>O-Wind Turbine</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: var(--data-color-2)"></span>
+                                <span>Traditional Turbines</span>
+                            </div>
+                            <div class="legend-item">
+                                <span class="legend-color" style="background: var(--data-color-3)"></span>
+                                <span>Solar Panels</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Energy Calculator -->
+                    <h3 class="section-subtitle">Energy Savings Calculator</h3>
+                    <div class="calculator-section">
+                        <p>Estimate how much energy and money you could save with an O-Wind Turbine:</p>
+                        <div class="calculator-inputs">
+                            <div class="form-group">
+                                <label for="location">Your Location</label>
+                                <select id="location">
+                                    <option value="urban-high">Urban (High-rise)</option>
+                                    <option value="urban-low">Urban (Low-rise)</option>
+                                    <option value="suburban">Suburban</option>
+                                    <option value="rural">Rural</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="electricity-cost">Electricity Cost ($/kWh)</label>
+                                <input type="number" id="electricity-cost" value="0.15" step="0.01" min="0.01">
+                            </div>
+                            <div class="form-group">
+                                <label for="wind-exposure">Wind Exposure</label>
+                                <select id="wind-exposure">
+                                    <option value="excellent">Excellent (Open/High Area)</option>
+                                    <option value="good" selected>Good (Average Conditions)</option>
+                                    <option value="moderate">Moderate (Some Obstructions)</option>
+                                    <option value="poor">Poor (Highly Obstructed)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="units">Number of Units</label>
+                                <input type="number" id="units" value="1" min="1" max="10">
+                            </div>
+                        </div>
+                        <button class="btn" id="calculate-btn">Calculate Savings</button>
+                        <div class="calculator-results" id="calculator-results">
+                            <h4>Estimated Results (Annual)</h4>
+                            <div class="result-item">
+                                <span>Energy Production:</span>
+                                <span class="result-value" id="energy-result">350 kWh</span>
+                            </div>
+                            <div class="result-item">
+                                <span>Cost Savings:</span>
+                                <span class="result-value" id="savings-result">$52.50</span>
+                            </div>
+                            <div class="result-item">
+                                <span>CO₂ Reduction:</span>
+                                <span class="result-value" id="co2-result">248 kg</span>
+                            </div>
+                            <div class="result-item">
+                                <span>ROI Timeline:</span>
+                                <span class="result-value" id="roi-result">11.4 years</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
         </div>
@@ -178,6 +273,107 @@
                         <h2>Ready to Transform Your Energy Future?</h2>
                         <p>The O-Wind Turbine represents a breakthrough in urban renewable energy generation</p>
                         <a href="#contact" class="btn page-transition" data-page="contact">Contact Us For Pricing</a>
+                    </div>
+                    
+                    <!-- Development Timeline -->
+                    <h3 class="section-subtitle">Development Journey</h3>
+                    <div class="timeline-container">
+                        <div class="timeline-line"></div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-content">
+                                <div class="timeline-date">January 2021</div>
+                                <h4>Concept Development</h4>
+                                <p>Initial research and concept design for omnidirectional wind capture technology.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-content">
+                                <div class="timeline-date">June 2021</div>
+                                <h4>First Prototype</h4>
+                                <p>Development of first functional prototype achieving 15% efficiency rating.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-content">
+                                <div class="timeline-date">November 2021</div>
+                                <h4>Design Refinement</h4>
+                                <p>Aerodynamic improvements increased efficiency to 22% with reduced material costs.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-content">
+                                <div class="timeline-date">March 2022</div>
+                                <h4>Field Testing</h4>
+                                <p>Real-world installation and testing in various urban environments.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-content">
+                                <div class="timeline-date">September 2022</div>
+                                <h4>Production Design</h4>
+                                <p>Final design optimization and preparation for commercial production.</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-item-content glow-pulse">
+                                <div class="timeline-date">Now</div>
+                                <h4>Pre-order Launch</h4>
+                                <p>Opening limited pre-orders for the first production batch.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Expert Testimonials -->
+                    <h3 class="section-subtitle">Expert Opinions</h3>
+                    <div class="testimonials-container">
+                        <div class="testimonials-wrapper">
+                            <div class="testimonial-item active">
+                                <p class="testimonial-quote">The O-Wind Turbine represents one of the most promising innovations in small-scale wind energy generation that I've seen in a decade.</p>
+                                <p class="testimonial-author">Dr. Sarah Chen</p>
+                                <p class="testimonial-role">Renewable Energy Researcher, MIT</p>
+                            </div>
+                            <div class="testimonial-item">
+                                <p class="testimonial-quote">By solving the directional limitations of traditional turbines, this technology could significantly expand wind power adoption in urban settings.</p>
+                                <p class="testimonial-author">Michael Rodriguez</p>
+                                <p class="testimonial-role">Urban Planning Director, Smart Cities Initiative</p>
+                            </div>
+                            <div class="testimonial-item">
+                                <p class="testimonial-quote">The compact design and omni-directional capabilities make this an ideal solution for residential renewable energy production in areas previously unsuitable for wind power.</p>
+                                <p class="testimonial-author">Emma Winters</p>
+                                <p class="testimonial-role">Sustainability Officer, GreenBuild Association</p>
+                            </div>
+                        </div>
+                        <div class="testimonial-controls">
+                            <button class="testimonial-btn prev-testimonial"><i class="fas fa-chevron-left"></i></button>
+                            <button class="testimonial-btn next-testimonial"><i class="fas fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                    
+                    <!-- Awards & Recognition -->
+                    <div class="awards-section">
+                        <h3>Awards & Recognition</h3>
+                        <div class="awards-grid">
+                            <div class="award-item">
+                                <div class="award-icon"><i class="fas fa-trophy"></i></div>
+                                <p class="award-name">Renewable Innovation Award</p>
+                                <p class="award-org">Global Wind Energy Council</p>
+                            </div>
+                            <div class="award-item">
+                                <div class="award-icon"><i class="fas fa-medal"></i></div>
+                                <p class="award-name">Green Technology Excellence</p>
+                                <p class="award-org">EcoTech Foundation</p>
+                            </div>
+                            <div class="award-item">
+                                <div class="award-icon"><i class="fas fa-star"></i></div>
+                                <p class="award-name">Best Urban Energy Solution</p>
+                                <p class="award-org">Smart City Expo</p>
+                            </div>
+                            <div class="award-item">
+                                <div class="award-icon"><i class="fas fa-award"></i></div>
+                                <p class="award-name">Sustainability Innovation</p>
+                                <p class="award-org">CleanTech Forum</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
