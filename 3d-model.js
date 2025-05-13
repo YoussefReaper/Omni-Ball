@@ -96,7 +96,7 @@ function addAnnotations(modelViewer) {
     const annotationPanel = document.createElement('div');
     annotationPanel.classList.add('annotation-panel');
     annotationPanel.innerHTML = `
-        <h4>O-Wind Turbine Features</h4>
+        <h4>Omnisphere Turbine Features</h4>
         <ul class="feature-list">
             <li>Omnidirectional wind capture technology</li>
             <li>Efficient in turbulent urban wind conditions</li>

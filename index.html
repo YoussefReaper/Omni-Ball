@@ -1,635 +1,401 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omni Directional O-Wind Turbine</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script>
-        // Ensure console.log exists to prevent errors
-        if (!window.console) window.console = { log: function() {}, error: function() {} };
-        
-        // Helper function to debug page transitions
-        function pageTransitionCheck() {
-            console.log("Page transition debug helper loaded");
-        }
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>OmniSphere School Project</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
 </head>
 <body>
-    <div class="progress-bar"></div>
-    
-    <nav class="main-nav">
-        <div class="container">
-            <div class="nav-brand">O-Wind</div>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
+  <div class="background-overlay"></div>
+  <div class="particles"></div>
+  <div class="progress-bar" id="progress-bar"></div>
+  <nav class="main-nav">
+    <div class="container">
+      <div class="nav-brand">OmniSphere</div>
+      <div class="nav-toggle" id="nav-toggle">
+        <span></span><span></span><span></span>
+      </div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#technical" class="nav-link">Technical</a></li>
+        <li><a href="#applications" class="nav-link">Applications</a></li>
+        <li><a href="#performance" class="nav-link">Performance</a></li>
+        <!-- Removed timeline and contact nav links -->
+        <!-- <li><a href="#timeline" class="nav-link">Development</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li> -->
+      </ul>
+    </div>
+  </nav>
+  <main>
+    <header id="hero">
+      <div class="container">
+        <h1>OmniSphere: A School Project</h1>
+        <p class="tagline">A compact, hands-on device for exploring basic clean energy.</p>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <h2>Practical, Lightweight, and Fun</h2>
+          <p>
+            Our 8kg prototype generates 0.13kW, perfect for demonstrations and small projects. With noise under 36 dB, it's classroom-friendly for hands-on learning.
+          </p>
+          <a href="#booking" class="btn">Order Your Prototype</a>
+        </div>
+        <div class="hero-image image-placeholder floating">
+          <img class="img-turbine" src="WhatsApp Image 2025-05-13 at 10.35.56_c2ac5a93.jpg">
+        </div>
+      </div>
+    </section>
+    <section id="features" class="features-section">
+      <div class="container">
+        <h2>Key Features</h2>
+        <div class="feature-grid">
+          <div class="feature card" style="--delay:0">
+            <div class="card-inner">
+              <div class="card-front">
+                <i class="fa-solid fa-cog fa-2x"></i>
+                <h3>Easy Setup</h3>
+              </div>
+              <div class="card-back">
+                <p>Designed with simplicity in mind, making it hassle-free for students.</p>
+              </div>
             </div>
-            <ul class="nav-links">
-                <li><a href="#home" class="nav-link active" data-page="home">Home</a></li>
-                <li><a href="#features" class="nav-link" data-page="features">Features</a></li>
-                <li><a href="#technical" class="nav-link" data-page="technical">Technical</a></li>
-                <li><a href="#applications" class="nav-link" data-page="applications">Applications</a></li>
-                <li><a href="#booking" class="nav-link" data-page="booking">Book Now</a></li>
-                <li><a href="#contact" class="nav-link" data-page="contact">Contact</a></li>
-            </ul>
+          </div>
+          <div class="feature card" style="--delay:1">
+            <div class="card-inner">
+              <div class="card-front">
+                <i class="fa-solid fa-leaf fa-2x"></i>
+                <h3>Environmentally Aware</h3>
+              </div>
+              <div class="card-back">
+                <p>Low power output and modest resources ensure a minimal ecological footprint.</p>
+              </div>
+            </div>
+          </div>
+          <div class="feature card" style="--delay:2">
+            <div class="card-inner">
+              <div class="card-front">
+                <i class="fa-solid fa-volume-down fa-2x"></i>
+                <h3>Quiet Operation</h3>
+              </div>
+              <div class="card-back">
+                <p>Less than 36 dB, so it won't disrupt classrooms or home labs.</p>
+              </div>
+            </div>
+          </div>
+          <div class="feature card" style="--delay:3">
+            <div class="card-inner">
+              <div class="card-front">
+                <i class="fa-solid fa-wallet fa-2x"></i>
+                <h3>Budget Friendly</h3>
+              </div>
+              <div class="card-back">
+                <p>Costs just 600 EGP to build and 999 EGP for two units, perfect for school projects.</p>
+              </div>
+            </div>
+          </div>
         </div>
-    </nav>
-    
-    <div class="page-container">
-        <div class="page active" id="home">
-            <header>
-                <div class="container">
-                    <h1>Omni Directional O-Wind Turbine</h1>
-                    <p class="tagline">The Future of Urban Wind Energy</p>
+      </div>
+    </section>
+    <section id="technical" class="technical-section">
+      <div class="container">
+        <h2>Technical Specifications</h2>
+        <div class="tech-content">
+          <div class="tech-image image-placeholder">
+            <i class="fa-solid fa-microchip fa-3x"></i>
+          </div>
+          <div class="tech-specs">
+            <div class="spec-grid">
+              <div class="spec card" style="--delay:0">
+                <div class="card-inner">
+                  <div class="card-front">
+                    <i class="fa-solid fa-bolt fa-2x"></i>
+                    <h3>Output</h3>
+                  </div>
+                  <div class="card-back">
+                    <p>0.13 kW steady power, ideal for basic experiments and demonstrations.</p>
+                  </div>
                 </div>
-            </header>
-
-            <section class="hero">
-                <div class="container">
-                    <div class="hero-content">
-                        <div class="hero-text">
-                            <h2>Revolutionary Wind Energy Technology</h2>
-                            <p>Harnessing wind energy from any direction - transforming urban environments into power generators</p>
-                            <a href="#features" class="btn page-transition" data-page="features" 
-                               onclick="event.preventDefault(); window.goToPage('features');">
-                               Discover More
-                            </a>
-                        </div>
-                        <div class="hero-image">
-                            <!-- Main turbine image placeholder -->
-                            <div class="image-placeholder">
-                                <p>Main Turbine Image</p>
-                            </div>
-                        </div>
-                    </div>
+              </div>
+              <div class="spec card" style="--delay:1">
+                <div class="card-inner">
+                  <div class="card-front">
+                    <i class="fa-solid fa-gauge-low fa-2x"></i>
+                    <h3>Efficiency</h3>
+                  </div>
+                  <div class="card-back">
+                    <p>Runs at about 30.01% efficiency, perfect for illustrating energy concepts.</p>
+                  </div>
                 </div>
-            </section>
+              </div>
+              <div class="spec card" style="--delay:2">
+                <div class="card-inner">
+                  <div class="card-front">
+                    <i class="fa-solid fa-ruler-combined fa-2x"></i>
+                    <h3>Dimensions</h3>
+                  </div>
+                  <div class="card-back">
+                    <p>1.13m high, 0.54m wide, and 0.54m long. Fits easily on tables or stands.</p>
+                  </div>
+                </div>
+              </div>
+              <div class="spec card" style="--delay:3">
+                <div class="card-inner">
+                  <div class="card-front">
+                    <i class="fa-solid fa-weight-hanging fa-2x"></i>
+                    <h3>Weight</h3>
+                  </div>
+                  <div class="card-back">
+                    <p>Weighs only 8kg, making it portable for classroom mobility.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div class="page" id="features">
-            <section class="features-section">
-                <div class="container">
-                    <h2>Key Features & Benefits</h2>
-                    <div class="feature-grid">
-                        <div class="feature">
-                            <div class="image-placeholder">
-                                <p>Omni-directional Capability</p>
-                            </div>
-                            <h3>Omni-directional Design</h3>
-                            <p>Captures wind from any direction without repositioning, perfect for turbulent urban airflows</p>
-                        </div>
-                        <div class="feature">
-                            <div class="image-placeholder">
-                                <p>Compact Design</p>
-                            </div>
-                            <h3>Space Efficient</h3>
-                            <p>Compact spherical design fits easily on balconies, rooftops, and other urban spaces</p>
-                        </div>
-                        <div class="feature">
-                            <div class="image-placeholder">
-                                <p>Efficiency Chart</p>
-                            </div>
-                            <h3>High Efficiency</h3>
-                            <p>Innovative aerodynamics maximize energy conversion even in variable wind conditions</p>
-                        </div>
-                        <div class="feature">
-                            <div class="image-placeholder">
-                                <p>Eco-friendly Impact</p>
-                            </div>
-                            <h3>Environmentally Friendly</h3>
-                            <p>Zero emissions and sustainable materials contribute to a greener planet</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <div class="cta-box">
+          <h2>School-Ready Design</h2>
+          <p>
+            This prototype is optimized for teaching STEM basics without advanced complexities.
+          </p>
+          <a href="#contact" class="btn">Contact Us</a>
         </div>
-
-        <div class="page" id="technical">
-            <section class="technical-section">
-                <div class="container">
-                    <h2>Technical Specifications</h2>
-                    <div class="tech-content">
-                        <div class="tech-image">
-                            <div class="image-placeholder">
-                                <p>Technical Diagram</p>
-                            </div>
-                        </div>
-                        <div class="tech-specs">
-                            <div class="spec">
-                                <h4>Power Output</h4>
-                                <p>Up to 0.17 kW depending on wind conditions</p>
-                            </div>
-                            <div class="spec">
-                                <h4>Dimensions</h4>
-                                <p>40 cm diameter spherical design</p>
-                            </div>
-                            <div class="spec">
-                                <h4>Weight</h4>
-                                <p>7.5 kg - lightweight for easy installation</p>
-                            </div>
-                            <div class="spec">
-                                <h4>Material</h4>
-                                <p>Durable, weather-resistant composites</p>
-                            </div>
-                            <div class="spec">
-                                <h4>Wind Speed Range</h4>
-                                <p>Operational from 3 to 7 m/s</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Interactive 3D Model -->
-                    <h3 class="section-subtitle">Interactive 3D Model</h3>
-                    <div class="model-viewer-container">
-                        <model-viewer id="turbine-model" alt="O-Wind Turbine 3D Model" 
-                            src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
-                            shadow-intensity="1" camera-controls touch-action="pan-y"
-                            auto-rotate ar>
-                            <div class="progress-bar hide" slot="progress-bar">
-                                <div class="update-bar"></div>
-                            </div>
-                        </model-viewer>
-                        <div class="model-controls">
-                            <button class="model-control-btn" id="rotate-toggle">Pause Rotation</button>
-                            <button class="model-control-btn" id="explode-view">Exploded View</button>
-                            <button class="model-control-btn" id="reset-view">Reset View</button>
-                        </div>
-                    </div>
-                    
-                    <!-- Energy Efficiency Chart -->
-                    <h3 class="section-subtitle">Performance Analysis</h3>
-                    <div class="interactive-chart">
-                        <p>Compare the O-Wind Turbine's efficiency with traditional wind solutions across different wind conditions:</p>
-                        <div class="chart-container" id="efficiency-chart">
-                            <!-- Chart will be rendered here by JavaScript -->
-                        </div>
-                        <div class="chart-legend">
-                            <div class="legend-item">
-                                <span class="legend-color" style="background: var(--primary-color)"></span>
-                                <span>O-Wind Turbine</span>
-                            </div>
-                            <div class="legend-item">
-                                <span class="legend-color" style="background: var(--data-color-2)"></span>
-                                <span>Traditional Turbines</span>
-                            </div>
-                            <div class="legend-item">
-                                <span class="legend-color" style="background: var(--data-color-3)"></span>
-                                <span>Solar Panels</span>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Energy Calculator -->
-                    <h3 class="section-subtitle">Energy Savings Calculator</h3>
-                    <div class="calculator-section">
-                        <p>Estimate how much energy and money you could save with an O-Wind Turbine:</p>
-                        <div class="calculator-inputs">
-                            <div class="form-group">
-                                <label for="location">Your Location</label>
-                                <select id="location">
-                                    <option value="urban-high">Urban (High-rise)</option>
-                                    <option value="urban-low">Urban (Low-rise)</option>
-                                    <option value="suburban">Suburban</option>
-                                    <option value="rural">Rural</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="electricity-cost">Electricity Cost ($/kWh)</label>
-                                <input type="number" id="electricity-cost" value="0.15" step="0.01" min="0.01">
-                            </div>
-                            <div class="form-group">
-                                <label for="wind-exposure">Wind Exposure</label>
-                                <select id="wind-exposure">
-                                    <option value="excellent">Excellent (Open/High Area)</option>
-                                    <option value="good" selected>Good (Average Conditions)</option>
-                                    <option value="moderate">Moderate (Some Obstructions)</option>
-                                    <option value="poor">Poor (Highly Obstructed)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="units">Number of Units</label>
-                                <input type="number" id="units" value="1" min="1" max="10">
-                            </div>
-                        </div>
-                        <button class="btn" id="calculate-btn">Calculate Savings</button>
-                        <div class="calculator-results" id="calculator-results">
-                            <h4>Estimated Results (Annual)</h4>
-                            <div class="result-item">
-                                <span>Energy Production:</span>
-                                <span class="result-value" id="energy-result">350 kWh</span>
-                            </div>
-                            <div class="result-item">
-                                <span>Cost Savings:</span>
-                                <span class="result-value" id="savings-result">$52.50</span>
-                            </div>
-                            <div class="result-item">
-                                <span>CO₂ Reduction:</span>
-                                <span class="result-value" id="co2-result">248 kg</span>
-                            </div>
-                            <div class="result-item">
-                                <span>ROI Timeline:</span>
-                                <span class="result-value" id="roi-result">11.4 years</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      </div>
+    </section>
+    <section id="applications" class="applications-section">
+      <div class="container">
+        <h2>Applications</h2>
+        <div class="app-grid">
+          <div class="app card" style="--delay:0">
+            <div class="card-inner">
+              <div class="card-front">
+                <i class="fa-solid fa-school fa-2x"></i>
+                <h3>Class Labs</h3>
+              </div>
+              <div class="card-back">
+                <p>Introduce energy principles in a fun, hands-on setting.</p>
+              </div>
+            </div>
+          </div>
+          <div class="app card" style="--delay:1">
+            <div class="card-inner">
+              <div class="card-front">
+                <i class="fa-solid fa-chalkboard-teacher fa-2x"></i>
+                <h3>Workshops</h3>
+              </div>
+              <div class="card-back">
+                <p>Perfect for training sessions or engineering clubs with limited budgets.</p>
+              </div>
+            </div>
+          </div>
+          <div class="app card" style="--delay:2">
+            <div class="card-inner">
+              <div class="card-front">
+                <i class="fa-solid fa-home fa-2x"></i>
+                <h3>Home Projects</h3>
+              </div>
+              <div class="card-back">
+                <p>A small-scale device that students can explore at home with supervision.</p>
+              </div>
+            </div>
+          </div>
+          <div class="app card" style="--delay:3">
+            <div class="card-inner">
+              <div class="card-front">
+                <i class="fa-solid fa-lightbulb fa-2x"></i>
+                <h3>Demos & Fairs</h3>
+              </div>
+              <div class="card-back">
+                <p>Show off a functioning mini energy system at science fairs and exhibitions.</p>
+              </div>
+            </div>
+          </div>
         </div>
-
-        <div class="page" id="applications">
-            <section class="applications-section">
-                <div class="container">
-                    <h2>Applications</h2>
-                    <div class="app-grid">
-                        <div class="app">
-                            <div class="image-placeholder">
-                                <p>Residential Application</p>
-                            </div>
-                            <h3>Residential</h3>
-                            <p>Perfect for apartments, houses and residential communities</p>
-                        </div>
-                        <div class="app">
-                            <div class="image-placeholder">
-                                <p>Commercial Application</p>
-                            </div>
-                            <h3>Commercial</h3>
-                            <p>Ideal for office buildings, shopping centers and urban infrastructure</p>
-                        </div>
-                        <div class="app">
-                            <div class="image-placeholder">
-                                <p>Off-grid Application</p>
-                            </div>
-                            <h3>Off-Grid</h3>
-                            <p>Reliable power generation for remote locations and emergency situations</p>
-                        </div>
-                    </div>
-                    
-                    <div class="cta-box">
-                        <h2>Ready to Transform Your Energy Future?</h2>
-                        <p>The O-Wind Turbine represents a breakthrough in urban renewable energy generation</p>
-                        <a href="#contact" class="btn page-transition" data-page="contact">Contact Us For Pricing</a>
-                    </div>
-                    
-                    <!-- Development Timeline -->
-                    <h3 class="section-subtitle">Development Journey</h3>
-                    <div class="timeline-container">
-                        <div class="timeline-line"></div>
-                        <div class="timeline-item">
-                            <div class="timeline-item-content">
-                                <div class="timeline-date">January 2021</div>
-                                <h4>Concept Development</h4>
-                                <p>Initial research and concept design for omnidirectional wind capture technology.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-item-content">
-                                <div class="timeline-date">June 2021</div>
-                                <h4>First Prototype</h4>
-                                <p>Development of first functional prototype achieving 15% efficiency rating.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-item-content">
-                                <div class="timeline-date">November 2021</div>
-                                <h4>Design Refinement</h4>
-                                <p>Aerodynamic improvements increased efficiency to 22% with reduced material costs.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-item-content">
-                                <div class="timeline-date">March 2022</div>
-                                <h4>Field Testing</h4>
-                                <p>Real-world installation and testing in various urban environments.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-item-content">
-                                <div class="timeline-date">September 2022</div>
-                                <h4>Production Design</h4>
-                                <p>Final design optimization and preparation for commercial production.</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-item-content glow-pulse">
-                                <div class="timeline-date">Now</div>
-                                <h4>Pre-order Launch</h4>
-                                <p>Opening limited pre-orders for the first production batch.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Expert Testimonials -->
-                    <h3 class="section-subtitle">Expert Opinions</h3>
-                    <div class="testimonials-container">
-                        <div class="testimonials-wrapper">
-                            <div class="testimonial-item active">
-                                <p class="testimonial-quote">The O-Wind Turbine represents one of the most promising innovations in small-scale wind energy generation that I've seen in a decade.</p>
-                                <p class="testimonial-author">Dr. Sarah Chen</p>
-                                <p class="testimonial-role">Renewable Energy Researcher, MIT</p>
-                            </div>
-                            <div class="testimonial-item">
-                                <p class="testimonial-quote">By solving the directional limitations of traditional turbines, this technology could significantly expand wind power adoption in urban settings.</p>
-                                <p class="testimonial-author">Michael Rodriguez</p>
-                                <p class="testimonial-role">Urban Planning Director, Smart Cities Initiative</p>
-                            </div>
-                            <div class="testimonial-item">
-                                <p class="testimonial-quote">The compact design and omni-directional capabilities make this an ideal solution for residential renewable energy production in areas previously unsuitable for wind power.</p>
-                                <p class="testimonial-author">Emma Winters</p>
-                                <p class="testimonial-role">Sustainability Officer, GreenBuild Association</p>
-                            </div>
-                        </div>
-                        <div class="testimonial-controls">
-                            <button class="testimonial-btn prev-testimonial"><i class="fas fa-chevron-left"></i></button>
-                            <button class="testimonial-btn next-testimonial"><i class="fas fa-chevron-right"></i></button>
-                        </div>
-                    </div>
-                    
-                    <!-- Awards & Recognition -->
-                    <div class="awards-section">
-                        <h3>Awards & Recognition</h3>
-                        <div class="awards-grid">
-                            <div class="award-item">
-                                <div class="award-icon"><i class="fas fa-trophy"></i></div>
-                                <p class="award-name">Renewable Innovation Award</p>
-                                <p class="award-org">Global Wind Energy Council</p>
-                            </div>
-                            <div class="award-item">
-                                <div class="award-icon"><i class="fas fa-medal"></i></div>
-                                <p class="award-name">Green Technology Excellence</p>
-                                <p class="award-org">EcoTech Foundation</p>
-                            </div>
-                            <div class="award-item">
-                                <div class="award-icon"><i class="fas fa-star"></i></div>
-                                <p class="award-name">Best Urban Energy Solution</p>
-                                <p class="award-org">Smart City Expo</p>
-                            </div>
-                            <div class="award-item">
-                                <div class="award-icon"><i class="fas fa-award"></i></div>
-                                <p class="award-name">Sustainability Innovation</p>
-                                <p class="award-org">CleanTech Forum</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+      </div>
+    </section>
+    <section id="performance" class="calculator-section">
+      <div class="container">
+        <h2>Performance Overview</h2>
+        <div class="interactive-chart">
+          <div class="chart-container" id="performance-chart">
+            <!-- Chart.js or similar can be used here -->
+            <canvas id="chart-canvas" width="600" height="300" style="background:transparent;"></canvas>
+          </div>
+          <div class="chart-legend">
+            <div class="legend-item">
+              <span class="legend-color" style="background:var(--data-color-1)"></span> Output (kW)
+            </div>
+            <div class="legend-item">
+              <span class="legend-color" style="background:var(--data-color-2)"></span> Efficiency (%)
+            </div>
+            <div class="legend-item">
+              <span class="legend-color" style="background:var(--data-color-3)"></span> Temperature (°C)
+            </div>
+          </div>
         </div>
-
-        <div class="page" id="booking">
-            <section class="booking-section">
-                <div class="container">
-                    <h2>Reserve Your O-Wind Turbine</h2>
-                    <div class="booking-content">
-                        <div class="product-preview">
-                            <div class="image-placeholder">
-                                <p>O-Wind Turbine</p>
-                            </div>
-                            <div class="product-details">
-                                <h3>Omni-Directional Wind Turbine</h3>
-                                <div class="product-specs">
-                                    <p><strong>Model:</strong> OWT-40 Standard</p>
-                                    <p><strong>Output:</strong> Up to 0.4 kW</p>
-                                    <p><strong>Dimensions:</strong> 40cm diameter</p>
-                                    <p><strong>Limited Pre-Order Price:</strong> <span class="price">$599</span></p>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="booking-form-container">
-                            <div class="form-tabs">
-                                <button class="tab-btn active" data-tab="reservation">Reservation</button>
-                                <button class="tab-btn" data-tab="payment">Payment</button>
-                                <button class="tab-btn" data-tab="confirmation" disabled>Confirmation</button>
-                            </div>
-                            
-                            <div class="tab-content active" id="reservation-tab">
-                                <form id="reservation-form" class="booking-form">
-                                    <div class="form-group">
-                                        <label for="full-name">Full Name</label>
-                                        <input type="text" id="full-name" placeholder="Enter your full name" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="booking-email">Email Address</label>
-                                        <input type="email" id="booking-email" placeholder="Enter your email" required>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="phone">Phone Number</label>
-                                        <input type="tel" id="phone" placeholder="Enter your phone number">
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="quantity">Quantity</label>
-                                        <select id="quantity">
-                                            <option value="1">1 unit</option>
-                                            <option value="2">2 units</option>
-                                            <option value="3">3 units</option>
-                                            <option value="4">4 units</option>
-                                            <option value="5">5 units</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <div class="form-group">
-                                        <label for="installation">Installation Option</label>
-                                        <select id="installation">
-                                            <option value="self">Self-Installation (Free)</option>
-                                            <option value="professional">Professional Installation (+$150)</option>
-                                        </select>
-                                    </div>
-                                    
-                                    <button type="button" class="btn next-btn">Next: Payment</button>
-                                </form>
-                            </div>
-                            
-                            <div class="tab-content" id="payment-tab">
-                                <div class="payment-options">
-                                    <h3>Select Payment Method</h3>
-                                    
-                                    <div class="payment-method active">
-                                        <input type="radio" id="paypal" name="payment-method" checked>
-                                        <label for="paypal">
-                                            <img src="https://www.paypalobjects.com/webstatic/mktg/logo/pp_cc_mark_37x23.jpg" alt="PayPal" class="payment-logo">
-                                            <span>PayPal or Credit Card</span>
-                                        </label>
-                                    </div>
-                                    
-                                    <div class="paypal-form">
-                                        <div class="paypal-header">
-                                            <div class="paypal-logo">
-                                                <i class="fab fa-paypal"></i> PayPal
-                                            </div>
-                                            <div class="paypal-cards">
-                                                <i class="fab fa-cc-visa"></i>
-                                                <i class="fab fa-cc-mastercard"></i>
-                                                <i class="fab fa-cc-amex"></i>
-                                                <i class="fab fa-cc-discover"></i>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label for="card-number">Card Number</label>
-                                            <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
-                                        </div>
-                                        
-                                        <div class="card-details">
-                                            <div class="form-group">
-                                                <label for="expiry">Expiration Date</label>
-                                                <input type="text" id="expiry" placeholder="MM/YY">
-                                            </div>
-                                            
-                                            <div class="form-group">
-                                                <label for="cvc">Security Code</label>
-                                                <input type="text" id="cvc" placeholder="CVC">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-group">
-                                            <label for="card-name">Name on Card</label>
-                                            <input type="text" id="card-name" placeholder="Enter name as shown on card">
-                                        </div>
-                                        
-                                        <div class="booking-summary">
-                                            <h4>Order Summary</h4>
-                                            <div class="summary-item">
-                                                <span>O-Wind Turbine (<span id="summary-quantity">1</span>)</span>
-                                                <span id="summary-product-price">$599.00</span>
-                                            </div>
-                                            <div class="summary-item" id="summary-installation">
-                                                <span>Installation</span>
-                                                <span>$0.00</span>
-                                            </div>
-                                            <div class="summary-item">
-                                                <span>Shipping</span>
-                                                <span>$0.00</span>
-                                            </div>
-                                            <div class="summary-total">
-                                                <span>Total</span>
-                                                <span id="summary-total-price">$599.00</span>
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="form-actions">
-                                            <button type="button" class="btn back-btn">Back</button>
-                                            <button type="button" class="btn submit-payment">Complete Reservation</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="tab-content" id="confirmation-tab">
-                                <div class="confirmation-message">
-                                    <div class="success-icon">
-                                        <i class="fas fa-check-circle"></i>
-                                    </div>
-                                    <h3>Reservation Confirmed!</h3>
-                                    <p>Thank you for reserving your O-Wind Turbine.</p>
-                                    <p>Your reservation number: <strong id="reservation-number">OWT-12345</strong></p>
-                                    <div class="queue-position">
-                                        <p>You are <strong class="position-number">#1</strong> on our pre-order list.</p>
-                                        <p>We will notify you when your order is ready for production.</p>
-                                    </div>
-                                    
-                                    <div class="email-preview">
-                                        <div class="email-header">
-                                            <p><strong>From:</strong> Airbenders@OmniSphere.com</p>
-                                            <p><strong>To:</strong> <span id="confirmation-email">customer@example.com</span></p>
-                                            <p><strong>Subject:</strong> Your O-Wind Turbine Reservation Confirmation</p>
-                                        </div>
-                                        <div class="email-body">
-                                            <p>Dear <span id="confirmation-name">Customer</span>,</p>
-                                            <p>Thank you for reserving your O-Wind Turbine. We're excited to welcome you to our community of sustainable energy pioneers!</p>
-                                            <p>Your reservation has been confirmed, and you are <strong class="position-number">#1</strong> on our pre-order list.</p>
-                                            <p>We will notify you when your O-Wind Turbine is ready for production and delivery.</p>
-                                            <p>Reservation Details:</p>
-                                            <ul>
-                                                <li>Product: O-Wind Turbine OWT-40 Standard</li>
-                                                <li>Quantity: <span id="confirmation-quantity">1</span></li>
-                                                <li>Installation: <span id="confirmation-installation">Self-Installation</span></li>
-                                                <li>Reservation Number: <span id="email-reservation-number">OWT-12345</span></li>
-                                            </ul>
-                                            <p>If you have any questions, please don't hesitate to contact our support team.</p>
-                                            <p>Thank you for joining the renewable energy revolution!</p>
-                                            <p>Best regards,<br>The Airbenders Team<br>OmniSphere Technologies</p>
-                                        </div>
-                                    </div>
-                                    
-                                    <button class="btn" id="back-to-home">Return to Home Page</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
+        <div class="calculator-results">
+          <div class="result-item">
+            <span>Power Output</span>
+            <span class="result-value">0.13 kW</span>
+          </div>
+          <div class="result-item">
+            <span>Efficiency</span>
+            <span class="result-value">30.01%</span>
+          </div>
+          <div class="result-item">
+            <span>Noise Level</span>
+            <span class="result-value">Below 36 dB</span>
+          </div>
         </div>
-
-        <div class="page" id="contact">
-            <section class="contact-section">
-                <div class="container">
-                    <h2>Contact Us</h2>
-                    <div class="contact-grid">
-                        <div class="contact-form">
-                            <form>
-                                <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" id="name" placeholder="Your Name">
-                                </div>
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" id="email" placeholder="Your Email">
-                                </div>
-                                <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" placeholder="Your Message"></textarea>
-                                </div>
-                                <button type="submit" class="btn">Send Message</button>
-                            </form>
-                        </div>
-                        
-                        <div class="contact-info">
-                            <h3>Contact Information</h3>
-                            <p><i class="fas fa-envelope"></i> info@Wind_Ball.com</p>
-                            <p><i class="fas fa-phone"></i> +20 101 636 6886</p>
-                        </div>
-                    </div>
+      </div>
+    </section>
+    <!-- Removed the entire timeline section -->
+    <!-- 
+    <section id="timeline" class="timeline-container">
+      ...existing code...
+    </section>
+    -->
+    <section id="booking" class="booking-section">
+      <div class="container">
+        <h2>Get Your OmniSphere Prototype</h2>
+        <div class="booking-grid card" style="--delay:0">
+          <div class="card-inner">
+            <div class="card-front">
+              <form>
+                <div class="form-group">
+                  <label for="booking-name">Name</label>
+                  <input id="booking-name" name="name" type="text" required autocomplete="name" />
                 </div>
-            </section>
-            
-            <footer>
-                <div class="container">
-                    <p class="copyright">© 2025 Omni-Ball. All rights reserved.</p>
-                    <div class="footer-glow"></div>
+                <div class="form-group">
+                  <label for="booking-email">Email</label>
+                  <input id="booking-email" name="email" type="email" required autocomplete="email" />
                 </div>
-            </footer>
+                <div class="form-group">
+                  <label for="booking-phone">Phone</label>
+                  <input id="booking-phone" name="phone" type="tel" required autocomplete="tel" />
+                </div>
+                <div class="form-group">
+                  <label for="booking-model">Package</label>
+                  <select id="booking-model" name="model" required>
+                    <option value="">Select a package</option>
+                    <option value="single">Single Unit (0.13kW)</option>
+                    <option value="double">Dual-unit Package (0.13kW each) - 999 EGP</option>
+                    <option value="school">School Project Kit (includes guide)</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="booking-date">Preferred Delivery Date</label>
+                  <input id="booking-date" name="date" type="date" required />
+                </div>
+                <button type="submit" class="btn">Reserve Now</button>
+              </form>
+            </div>
+            <div class="card-back">
+              <div class="booking-info">
+                <h3>Why Choose This Prototype?</h3>
+                <ul>
+                  <li>Lightweight (8kg) and easy to handle</li>
+                  <li>Built for practical school demonstrations</li>
+                  <li>Low noise and safe for indoor use</li>
+                  <li>Future upgrade options included</li>
+                </ul>
+                <div class="booking-note">
+                  <p><strong>Note:</strong> No payment required now. Our team will contact you with details.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-
-    <div class="page-transition-overlay">
-        <div class="transition-circle"></div>
+      </div>
+    </section>
+    <!-- Removed the entire contact section -->
+    <!--
+    <section id="contact" class="contact-section">
+      ...existing code...
+    </section>
+    -->
+    <footer>
+      <div class="footer-content container">
+        <div>
+          <div class="nav-brand">OmniSphere</div>
+          <div class="copyright">&copy; 2025 OmniSphere School Project. All rights reserved.</div>
+        </div>
+        <div class="social-links">
+          <h3>Connect</h3>
+          <div class="social-icons">
+            <a href="#" class="social-icon" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" class="social-icon" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" class="social-icon" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-glow"></div>
+    </footer>
+    <div class="page-transition-overlay" id="page-transition">
+      <div class="transition-circle"></div>
     </div>
     
-    <script src="script.js"></script>
-    <script>
-        // Additional check to ensure page system initializes
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if page transition system is ready after a short delay
-            setTimeout(function() {
-                if (typeof window.goToPage !== 'function') {
-                    console.error('Page transition system not initialized correctly');
-                    // Fallback initialization
-                    if (typeof initPageSystem === 'function') {
-                        console.log('Attempting fallback initialization');
-                        initPageSystem();
-                    }
-                }
-            }, 1000);
+  </main>
+  <script>
+    // ...existing code for nav toggle, progress bar, preloader, etc...
+
+    // Example Chart.js for performance chart (replace with your own data as needed)
+    window.addEventListener('DOMContentLoaded', function() {
+      const ctx = document.getElementById('chart-canvas').getContext('2d');
+      if (window.Chart) {
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['0h', '2h', '4h', '6h', '8h', '10h'],
+            datasets: [
+              {
+                label: 'Output (kW)',
+                data: [0.10, 0.13, 0.12, 0.13, 0.14, 0.13],
+                borderColor: getComputedStyle(document.documentElement).getPropertyValue('--data-color-1'),
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                pointRadius: 3,
+                tension: 0.4
+              },
+              {
+                label: 'Efficiency (%)',
+                data: [29.8, 30.0, 30.2, 30.1, 30.0, 29.9],
+                borderColor: getComputedStyle(document.documentElement).getPropertyValue('--data-color-2'),
+                backgroundColor: 'transparent',
+                borderDash: [5,5],
+                borderWidth: 2,
+                pointRadius: 3,
+                tension: 0.4
+              },
+              {
+                label: 'Temperature (°C)',
+                data: [40, 45, 50, 55, 60, 65],
+                borderColor: getComputedStyle(document.documentElement).getPropertyValue('--data-color-3'),
+                backgroundColor: 'transparent',
+                borderWidth: 2,
+                pointRadius: 3,
+                tension: 0.4
+              }
+            ]
+          },
+          options: {
+            plugins: { legend: { display: false } },
+            scales: {
+              y: { beginAtZero: false, grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#fff' } },
+              x: { grid: { color: 'rgba(255,255,255,0.05)' }, ticks: { color: '#fff' } }
+            }
+          }
         });
-    </script>
-    <div class="background-overlay"></div>
-    <div class="particles"></div>
+      }
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </body>
 </html>

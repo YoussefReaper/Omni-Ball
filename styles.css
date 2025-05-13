@@ -141,30 +141,17 @@ h1, h2, h3, h4 {
 }
 
 /* Page System */
-.page-container {
-  position: relative;
-  min-height: 100vh;
-  padding-top: 70px; /* Space for fixed navbar */
+.page-container, .page, .page.active, .page-transition-overlay {
+  position: static;
+  opacity: 1;
+  transform: none;
+  visibility: visible;
 }
 
 .page {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  width: 100%;
-  min-height: calc(100vh - 70px);
-  opacity: 0;
-  transform: translateY(50px);
-  transition: opacity var(--transition-speed) ease, transform var(--transition-speed) ease;
-  visibility: hidden;
-  z-index: 1;
-}
-
-.page.active {
+  display: block;
   opacity: 1;
-  transform: translateY(0);
   visibility: visible;
-  z-index: 2;
 }
 
 /* Header Styling */
@@ -184,7 +171,7 @@ header h1 {
 }
 
 .tagline {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 1); /* Changed from 0.8 to 1 for full opacity */
   font-size: 1.2rem;
   font-weight: 300;
 }
@@ -192,7 +179,7 @@ header h1 {
 /* Hero Section */
 .hero {
   padding: 5rem 0;
-  background-image: linear-gradient(rgba(10, 14, 23, 0.7), rgba(10, 14, 23, 0.9)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa');
+  background-image: linear-gradient(rgba(10, 14, 23, 0.5), rgba(10, 14, 23, 0.7)), url('https://images.unsplash.com/photo-1451187580459-43490279c0fa'); /* Reduced overlay opacity */
   background-size: cover;
   background-position: center;
   position: relative;
@@ -291,6 +278,13 @@ header h1 {
   border: 1px solid var(--primary-color);
 }
 
+.hero-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
 .image-placeholder {
   background: linear-gradient(45deg, var(--dark-bg), #1c2334);
   aspect-ratio: 4/3;
@@ -358,10 +352,46 @@ header h1 {
   width: 100%;
 }
 
+.btn.loading {
+  position: relative;
+  pointer-events: none;
+  background: linear-gradient(90deg, var(--darker-bg), var(--secondary-color));
+}
+
+.btn.loading::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--text-color);
+  border-radius: 50%;
+  border-top-color: transparent;
+  animation: spin 1s linear infinite;
+  right: 15px;
+  top: calc(50% - 10px);
+}
+
 /* Section Styling */
 .features-section, .technical-section, .applications-section, .contact-section {
   padding: 5rem 0;
   position: relative;
+}
+
+section {
+  min-height: 50vh; /* Changed from 100vh to allow for normal flow */
+  padding: 5rem 0;
+  position: relative;
+  opacity: 1; /* All sections visible by default */
+  transform: none; /* No transform needed */
+  visibility: visible;
+}
+
+section:not(:first-child) {
+  margin-top: 2rem;
+}
+
+section {
+  scroll-margin-top: 80px;
 }
 
 section h2 {
@@ -398,8 +428,8 @@ section h2::after {
   transition: all 0.3s ease;
   border: 1px solid rgba(12, 255, 225, 0.1);
   backdrop-filter: blur(10px);
-  opacity: 0;
-  transform: translateY(20px);
+  opacity: 1; /* Changed from 0 to 1 to make cards visible by default */
+  transform: none; /* Changed from translateY(20px) to none */
 }
 
 .page.active .feature, .page.active .app {
@@ -452,8 +482,8 @@ section h2::after {
   border-radius: 8px;
   border-left: 3px solid var(--primary-color);
   transition: all 0.3s ease;
-  opacity: 0;
-  transform: translateX(-20px);
+  opacity: 1; /* Changed from 0 to 1 */
+  transform: none; /* Changed from translateX(-20px) to none */
 }
 
 .page.active .spec {
@@ -600,7 +630,7 @@ footer {
   box-shadow: 0 5px 15px rgba(12, 255, 225, 0.4);
 }
 
-copyright {
+.copyright {
   text-align: center;
   padding-top: 1rem;
   color: rgba(255, 255, 255, 0.6);
@@ -1214,8 +1244,8 @@ copyright {
 .timeline-container {
   position: relative;
   max-width: 1200px;
-  margin: 3rem auto;
-  padding: 2rem 0;
+  margin: 5rem auto;
+  padding: 4rem 0;
 }
 
 .timeline-line {
@@ -1439,4 +1469,41 @@ copyright {
 
 .glow-pulse {
   animation: glowPulse 3s infinite;
+}
+
+/* Update for continuous flow */
+main {
+  padding-top: 70px; /* Space for fixed navbar */
+}
+
+/* Update section titles */
+.section-subtitle {
+  font-size: 1.8rem;
+  color: var(--primary-color);
+  margin: 2.5rem 0 1.5rem;
+  text-shadow: var(--glow-shadow);
+}
+
+/* Make timeline more readable in continuous flow */
+.timeline-container {
+  padding: 4rem 0;
+  margin: 5rem auto;
+}
+
+/* Make sure background elements cover the entire page */
+.background-overlay, .particles {
+  min-height: 100%;
+}
+
+/* Fix for copyright selector - should be a class instead of element */
+.copyright {
+  text-align: center;
+  padding-top: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+
+/* Ensure form submissions work with JavaScript */
+form {
+  position: relative;
 }
